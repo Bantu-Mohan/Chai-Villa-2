@@ -1,0 +1,35 @@
+.container {
+    position: fixed;
+    bottom: var(--space-xl);
+    right: var(--space-xl);
+    display: flex;
+    flex-direction: column-reverse;
+    /* Newest at bottom visually, or top? Standard is stack up */
+    gap: var(--space-sm);
+    z-index: 200;
+    pointer-events: none;
+}
+
+.toast {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--color-primary);
+    animation: slideIn 0.3s ease;
+    font-size: 0.9rem;
+    max-width: 300px;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
