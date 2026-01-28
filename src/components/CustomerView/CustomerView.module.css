@@ -678,37 +678,273 @@
     }
 }
 
+/* Mobile Compact Optimization */
 @media (max-width: 480px) {
     .backdrop {
-        padding: 10px;
+        padding: 0;
     }
 
     .popupModal {
-        max-height: 95vh;
-        border-radius: 20px;
+        max-height: 100vh;
+        max-width: 100%;
+        border-radius: 0;
+        height: 100vh;
+    }
+
+    .header {
+        padding: 10px 14px;
+    }
+
+    .brand h1 {
+        font-size: 0.95rem;
+    }
+
+    .brandIcon {
+        font-size: 1.2rem;
+    }
+
+    .tableBadge {
+        padding: 4px 10px;
+        font-size: 0.7rem;
+    }
+
+    .themeToggle {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+    /* Compact Category Pills */
+    .categoryWrapper {
+        padding: 10px 12px;
+    }
+
+    .categoryPills {
+        gap: 6px;
+    }
+
+    .categoryPill {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        border-width: 1.5px;
+        border-radius: 18px;
+    }
+
+    .pillIcon {
+        font-size: 0.9rem;
+    }
+
+    .pillText {
+        font-size: 0.75rem;
+    }
+
+    /* Compact Menu Rows */
+    .menuList {
+        padding: 8px 10px;
+        padding-bottom: 90px;
+        gap: 6px;
     }
 
     .menuRow {
-        padding: 10px;
+        padding: 8px;
         gap: 10px;
+        border-radius: 12px;
     }
 
     .rowImage {
-        width: 50px;
-        height: 50px;
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
     }
 
     .rowName {
+        font-size: 0.8rem;
+        line-height: 1.2;
+    }
+
+    .rowPrice {
         font-size: 0.85rem;
     }
 
     .addButton {
-        padding: 8px 14px;
+        padding: 7px 12px;
+        font-size: 0.7rem;
+        border-radius: 8px;
+    }
+
+    .qtyBox {
+        gap: 4px;
+        padding: 2px;
+        border-radius: 8px;
+    }
+
+    .qtyBox button {
+        width: 26px;
+        height: 26px;
+        font-size: 0.95rem;
+        border-radius: 6px;
+    }
+
+    .qtyBox span {
+        min-width: 18px;
+        font-size: 0.85rem;
+    }
+
+    /* Compact Floating Cart */
+    .cartFab {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        gap: 10px;
+    }
+
+    .fabIcon {
+        font-size: 1.2rem;
+    }
+
+    .fabCount {
+        font-size: 0.75rem;
+    }
+
+    .fabTotal {
+        font-size: 1rem;
+    }
+
+    .fabArrow {
+        font-size: 1.2rem;
+    }
+
+    /* Compact Cart Popup */
+    .cartPopup {
+        max-height: 80vh;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .cartHeader {
+        padding: 12px 14px;
+    }
+
+    .cartHeader h3 {
+        font-size: 1rem;
+    }
+
+    .cartClose {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+
+    .cartItems {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .cartItem {
+        padding: 8px;
+        gap: 8px;
+        border-radius: 10px;
+    }
+
+    .cartItemName {
         font-size: 0.8rem;
     }
 
+    .cartItemPrice {
+        font-size: 0.7rem;
+    }
+
+    .cartItemQty button {
+        width: 24px;
+        height: 24px;
+        font-size: 0.9rem;
+    }
+
+    .cartItemQty span {
+        font-size: 0.8rem;
+    }
+
+    .cartItemTotal {
+        font-size: 0.85rem;
+        min-width: 50px;
+    }
+
+    .cartFooter {
+        padding: 12px 14px;
+    }
+
+    .cartTotal {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+
+    .cartTotalAmount {
+        font-size: 1.1rem;
+    }
+
+    .placeOrderBtn {
+        padding: 12px;
+        font-size: 0.9rem;
+        border-radius: 10px;
+    }
+
+    /* Compact State Views */
+    .stateView {
+        padding: 30px 16px;
+        min-height: 250px;
+    }
+
+    .stateView h2 {
+        font-size: 1.2rem;
+    }
+
+    .successIcon,
+    .errorIcon {
+        font-size: 3rem;
+    }
+
+    .pulse {
+        width: 55px;
+        height: 55px;
+    }
+
+    .billCard {
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .billItem {
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra Small Screens (iPhone SE, etc) */
+@media (max-width: 360px) {
     .categoryPill {
-        padding: 8px 12px;
+        padding: 5px 8px;
+    }
+
+    .pillText {
+        display: none;
+    }
+
+    .pillIcon {
+        font-size: 1.1rem;
+    }
+
+    .rowImage {
+        width: 42px;
+        height: 42px;
+    }
+
+    .rowName {
+        font-size: 0.75rem;
+    }
+
+    .addButton {
+        padding: 6px 10px;
+        font-size: 0.65rem;
     }
 }
 
