@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import styles from './DashboardLayout.module.css';
 import { useApp } from '../../store/AppContext';
 
@@ -6,19 +6,30 @@ interface Props {
     children: React.ReactNode;
 }
 
+type Theme = 'dark' | 'light';
+
 const DashboardLayout: React.FC<Props> = ({ children }) => {
     const { state } = useApp();
 
-    // Calculate total revenue for the "shift" (simple definition: sum of served/paid tables? Or all tables?)
-    // For now, let's just show active tables.
+    const [theme, setTheme] = useState<Theme>(() => {
+        const saved = localStorage.getItem('chai-shop-theme');
+        return (saved as Theme) || 'dark';
+    });
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('chai-shop-theme', theme);
+    }, [theme]);
+
+    const toggleTheme = () => {
+        setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    };
+
     const activeTables = useMemo(() => {
         return Object.values(state.tables).filter(t => t.status !== 'EMPTY').length;
     }, [state.tables]);
 
     const totalRevenue = useMemo(() => {
-        // Very basic: Sum of amount of SERVED tables (assuming paid?)
-        // Or just sum of all active orders. The prompt doesn't specify payment flow.
-        // Let's sum all amounts implementation logic.
         return Object.values(state.tables).reduce((acc, t) => acc + t.amount, 0);
     }, [state.tables]);
 
@@ -41,31 +52,48 @@ const DashboardLayout: React.FC<Props> = ({ children }) => {
                     <div className={styles.titleGroup}>
                         <h1>{state.shop.name}</h1>
                         <div className={styles.statusBar}>
-                            <span className={styles.statusPill} style={{ '--pill-color': 'var(--color-warning)' } as React.CSSProperties}>
-                                Ordered: <b>{statusCounts.ORDERED}</b>
+                            <span className={styles.statusPill} data-status="ordered">
+                                <span className={styles.pillDot}></span>
+                                <span className={styles.pillLabel}>Ordered</span>
+                                <b>{statusCounts.ORDERED}</b>
                             </span>
-                            <span className={styles.statusPill} style={{ '--pill-color': 'var(--color-primary)' } as React.CSSProperties}>
-                                Prep: <b>{statusCounts.PREPARING}</b>
+                            <span className={styles.statusPill} data-status="preparing">
+                                <span className={styles.pillDot}></span>
+                                <span className={styles.pillLabel}>Prep</span>
+                                <b>{statusCounts.PREPARING}</b>
                             </span>
-                            <span className={styles.statusPill} style={{ '--pill-color': 'var(--color-success)' } as React.CSSProperties}>
-                                Served: <b>{statusCounts.SERVED}</b>
+                            <span className={styles.statusPill} data-status="served">
+                                <span className={styles.pillDot}></span>
+                                <span className={styles.pillLabel}>Served</span>
+                                <b>{statusCounts.SERVED}</b>
                             </span>
-                            <span className={styles.statusPill} style={{ '--pill-color': 'var(--color-info)' } as React.CSSProperties}>
-                                Paid: <b>{statusCounts.PAID}</b>
+                            <span className={styles.statusPill} data-status="paid">
+                                <span className={styles.pillDot}></span>
+                                <span className={styles.pillLabel}>Paid</span>
+                                <b>{statusCounts.PAID}</b>
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <div className={styles.stats}>
-                    <div className={styles.statItem}>
-                        <span className={styles.statLabel}>Active Tables</span>
-                        <span className={styles.statValue}>{activeTables} / {state.shop.totalTables}</span>
+                <div className={styles.headerRight}>
+                    <div className={styles.stats}>
+                        <div className={styles.statItem}>
+                            <span className={styles.statLabel}>Active</span>
+                            <span className={styles.statValue}>{activeTables}/{state.shop.totalTables}</span>
+                        </div>
+                        <div className={styles.statItem}>
+                            <span className={styles.statLabel}>Revenue</span>
+                            <span className={styles.statValue}>₹{totalRevenue}</span>
+                        </div>
                     </div>
-                    <div className={styles.statItem}>
-                        <span className={styles.statLabel}>Current Revenue</span>
-                        <span className={styles.statValue}>₹{totalRevenue}</span>
-                    </div>
+                    <button
+                        className={styles.themeToggle}
+                        onClick={toggleTheme}
+                        aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                    >
+                        {theme === 'dark' ? '☀️' : '🌙'}
+                    </button>
                 </div>
             </header>
             <main className={styles.main}>
@@ -73,7 +101,6 @@ const DashboardLayout: React.FC<Props> = ({ children }) => {
             </main>
         </div>
     );
-
 };
 
 export default DashboardLayout;

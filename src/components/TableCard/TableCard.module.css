@@ -187,3 +187,115 @@
     pointer-events: none;
     background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.03), transparent 70%);
 }
+
+/* ============================================
+   Mobile Optimization
+   ============================================ */
+
+@media (max-width: 768px) {
+    .card {
+        height: 180px;
+        padding: 12px;
+        border-radius: 14px;
+    }
+
+    .tableId {
+        font-size: 1.1rem;
+    }
+
+    .statusBadge {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+
+    .amount {
+        font-size: 1.25rem;
+    }
+
+    .timer {
+        font-size: 0.8rem;
+    }
+
+    .itemsList {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        height: 160px;
+        padding: 10px;
+        border-radius: 12px;
+    }
+
+    .header {
+        margin-bottom: 8px;
+    }
+
+    .tableId {
+        font-size: 1rem;
+    }
+
+    .statusBadge {
+        font-size: 0.65rem;
+        padding: 2px 5px;
+    }
+
+    .body {
+        gap: 2px;
+    }
+
+    .itemsList {
+        font-size: 0.75rem;
+        gap: 2px;
+    }
+
+    .previewItem {
+        font-size: 0.7rem;
+    }
+
+    .emptyState {
+        font-size: 0.8rem;
+    }
+
+    .footer {
+        margin-top: 8px;
+        padding-top: 6px;
+    }
+
+    .amount {
+        font-size: 1.1rem;
+    }
+
+    .timer {
+        font-size: 0.7rem;
+    }
+
+    .clearBtn {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+    }
+}
+
+/* Light Theme Adjustments */
+[data-theme="light"] .card {
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .footer {
+    border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .clearBtn {
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #64748b;
+}
+
+[data-theme="light"] .glow {
+    background: radial-gradient(circle at top right, rgba(0, 0, 0, 0.02), transparent 70%);
+}
