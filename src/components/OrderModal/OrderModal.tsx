@@ -127,17 +127,17 @@ const OrderModal: React.FC = () => {
                     <div className={styles.confirmContent}>
                         <div className={styles.confirmList}>
                             {(table.paidOrders || []).length === 0 ? (
-                                <p style={{ textAlign: 'center', color: '#888', fontStyle: 'italic' }}>No bills recorded</p>
+                                <p className={styles.emptyHistory}>No bills recorded</p>
                             ) : (
                                 (table.paidOrders || []).map((order, oIdx) => (
-                                    <div key={`order-${oIdx}`} style={{ marginBottom: '1.5rem', borderBottom: '1px dashed rgba(255,255,255,0.1)', paddingBottom: '1rem' }}>
+                                    <div key={`order-${oIdx}`} className={styles.historyOrder}>
                                         {order.items.map((item, iIdx) => (
-                                            <div key={`hist-${oIdx}-${iIdx}`} className={styles.confirmItem} style={{ opacity: 1, color: 'var(--text-main)' }}>
+                                            <div key={`hist-${oIdx}-${iIdx}`} className={styles.historyItem}>
                                                 <span>{item.qty} x {item.name}</span>
                                                 <span>₹{item.price * item.qty}</span>
                                             </div>
                                         ))}
-                                        <div style={{ textAlign: 'right', marginTop: '0.5rem', fontSize: '0.9em', color: 'var(--color-primary)', fontWeight: 'bold' }}>
+                                        <div className={styles.historyOrderTotal}>
                                             Paid for order {oIdx + 1}: ₹{order.total}
                                         </div>
                                     </div>

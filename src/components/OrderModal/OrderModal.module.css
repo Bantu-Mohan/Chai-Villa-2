@@ -438,6 +438,35 @@
     color: var(--text-main);
 }
 
+/* History Order Styles */
+.emptyHistory {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+
+.historyOrder {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+    padding-bottom: 1rem;
+}
+
+.historyItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.historyOrderTotal {
+    text-align: right;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
 /* ============================================
    Mobile Optimization - OrderModal
    ============================================ */
@@ -929,4 +958,21 @@
 [data-theme="light"] .cancelBtn:hover {
     border-color: #1e293b;
     color: #1e293b;
+}
+
+/* Light Theme History Styles */
+[data-theme="light"] .emptyHistory {
+    color: #94a3b8;
+}
+
+[data-theme="light"] .historyOrder {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .historyItem {
+    color: #1e293b;
+}
+
+[data-theme="light"] .historyOrderTotal {
+    color: #059669;
 }
