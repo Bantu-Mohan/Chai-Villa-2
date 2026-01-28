@@ -130,7 +130,7 @@ function appReducer(state: AppState, action: Action | { type: 'UPDATE_TABLE_FROM
                         ...table,
                         items: newItems,
                         amount: newAmount,
-                        status: table.status === 'EMPTY' ? 'ORDERED' : table.status, // Auto-switch status
+                        status: table.status, // Don't auto-switch. Wait for "Place Order".
                         startedAt: table.startedAt || Date.now(),
                         lastPaid: table.lastPaid,
                         paidOrders: table.paidOrders || [],

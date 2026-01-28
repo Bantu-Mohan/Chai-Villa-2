@@ -136,6 +136,16 @@ const CustomerView: React.FC<Props> = ({ tableId }) => {
 
                     return (
                         <div key={item.id} className={styles.menuItem}>
+                            <div className={styles.itemImage}>
+                                <img
+                                    src={item.image}
+                                    alt={item.name}
+                                    loading="lazy"
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).src = '/images/menu/mt1.png';
+                                    }}
+                                />
+                            </div>
                             <div className={styles.itemInfo}>
                                 <h3>{item.name}</h3>
                                 <div className={styles.price}>₹{item.price}</div>
