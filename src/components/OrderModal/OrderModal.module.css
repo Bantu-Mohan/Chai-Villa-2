@@ -763,20 +763,64 @@
     border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 
+[data-theme="light"] .header h2 {
+    color: #1e293b;
+}
+
+[data-theme="light"] .closeBtn {
+    color: #64748b;
+}
+
+[data-theme="light"] .closeBtn:hover {
+    color: #ef4444;
+}
+
 [data-theme="light"] .menuSection {
     border-right-color: rgba(0, 0, 0, 0.06);
+    border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .menuSection h3,
+[data-theme="light"] .orderSection h3 {
+    color: #059669;
 }
 
 [data-theme="light"] .menuItem {
     background-color: #f1f5f9;
+    border-color: rgba(0, 0, 0, 0.05);
 }
 
 [data-theme="light"] .menuItem:hover {
     background-color: rgba(5, 150, 105, 0.1);
+    border-color: #059669;
+}
+
+[data-theme="light"] .itemName {
+    color: #1e293b;
+}
+
+[data-theme="light"] .itemPrice {
+    color: #059669;
 }
 
 [data-theme="light"] .orderSection {
     background-color: #f8fafc;
+}
+
+[data-theme="light"] .orderName {
+    color: #1e293b;
+}
+
+[data-theme="light"] .orderPrice {
+    color: #64748b;
+}
+
+[data-theme="light"] .emptyOrder {
+    color: #94a3b8;
+}
+
+[data-theme="light"] .orderItem {
+    border-bottom-color: rgba(0, 0, 0, 0.06);
 }
 
 [data-theme="light"] .manualInput,
@@ -786,12 +830,103 @@
     color: #1e293b;
 }
 
+[data-theme="light"] .manualInput::placeholder,
+[data-theme="light"] .manualPrice::placeholder {
+    color: #94a3b8;
+}
+
 [data-theme="light"] .controls {
     background-color: #e2e8f0;
+}
+
+[data-theme="light"] .controls button {
+    color: #1e293b;
+    background-color: #f8fafc;
+}
+
+[data-theme="light"] .controls button:hover {
+    background-color: #059669;
+    color: white;
+}
+
+[data-theme="light"] .controls span {
+    color: #1e293b;
+}
+
+[data-theme="light"] .summary {
+    border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .totalRow {
+    color: #059669;
 }
 
 [data-theme="light"] .statusActions button {
     background-color: #f1f5f9;
     border-color: rgba(0, 0, 0, 0.1);
     color: #64748b;
+}
+
+[data-theme="light"] .statusActions button:hover {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+
+[data-theme="light"] .statusActions button.active {
+    background-color: #059669;
+    color: white;
+    border-color: #059669;
+}
+
+[data-theme="light"] .clearBtn {
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+[data-theme="light"] .clearBtn:hover {
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+[data-theme="light"] .confirmOrderBtn {
+    background-color: #d97706;
+    color: white;
+}
+
+[data-theme="light"] .historyBtn {
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #64748b;
+}
+
+[data-theme="light"] .confirmContent {
+    color: #1e293b;
+}
+
+[data-theme="light"] .confirmList {
+    background-color: #f1f5f9;
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .confirmItem {
+    color: #1e293b;
+    border-bottom-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .confirmTotal {
+    background-color: rgba(5, 150, 105, 0.1);
+    color: #059669;
+}
+
+[data-theme="light"] .confirmBtn {
+    background-color: #059669;
+    color: white;
+}
+
+[data-theme="light"] .cancelBtn {
+    border-color: #64748b;
+    color: #64748b;
+}
+
+[data-theme="light"] .cancelBtn:hover {
+    border-color: #1e293b;
+    color: #1e293b;
 }
