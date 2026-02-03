@@ -1,0 +1,259 @@
+/* ADMIN STATUS BAR - New Control Panel */
+
+.admin-status-bar {
+    position: sticky;
+    top: 64px;
+    z-index: 90;
+    background: #1E1E1C;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 16px 16px;
+    margin: 0 12px;
+}
+
+/* Light mode background */
+[data-theme="light"] .admin-status-bar {
+    background: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Status Counter Pills */
+.asb-counters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.asb-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .asb-pill {
+    background: #F5F5F5;
+}
+
+.asb-count {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: white;
+    min-width: 20px;
+    text-align: center;
+}
+
+[data-theme="light"] .asb-count {
+    color: #1A1A1A;
+}
+
+.asb-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="light"] .asb-label {
+    color: #666;
+}
+
+/* Pill Color Variants */
+.asb-pill.new {
+    background: #3B82F6;
+}
+
+.asb-pill.new .asb-count,
+.asb-pill.new .asb-label {
+    color: white;
+}
+
+.asb-pill.preparing {
+    background: #F59E0B;
+}
+
+.asb-pill.preparing .asb-count,
+.asb-pill.preparing .asb-label {
+    color: #000;
+}
+
+.asb-pill.served {
+    background: #22C55E;
+}
+
+.asb-pill.served .asb-count,
+.asb-pill.served .asb-label {
+    color: white;
+}
+
+.asb-pill.paid {
+    background: #7C3AED;
+}
+
+.asb-pill.paid .asb-count,
+.asb-pill.paid .asb-label {
+    color: white;
+}
+
+.asb-pill.empty {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="light"] .asb-pill.empty {
+    background: #E5E7EB;
+}
+
+.asb-pill.empty .asb-count {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .asb-pill.empty .asb-count {
+    color: #374151;
+}
+
+/* Action Buttons */
+.asb-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.asb-action-btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.asb-action-btn.remove {
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+}
+
+.asb-action-btn.remove:hover {
+    background: #DC2626;
+    transform: scale(1.02);
+}
+
+.asb-action-btn.add {
+    background: #2F6F5E;
+    color: white;
+}
+
+.asb-action-btn.add:hover {
+    background: #246B54;
+    transform: scale(1.02);
+}
+
+/* Confirmation Overlay */
+.asb-confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.asb-confirm-box {
+    background: var(--surface);
+    padding: 24px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 320px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.asb-confirm-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.asb-confirm-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.asb-confirm-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.asb-confirm-btn.cancel {
+    background: #E5E7EB;
+    color: #374151;
+}
+
+.asb-confirm-btn.cancel:hover {
+    background: #D1D5DB;
+}
+
+.asb-confirm-btn.confirm {
+    background: #EF4444;
+    color: white;
+}
+
+.asb-confirm-btn.confirm:hover {
+    background: #DC2626;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .admin-status-bar {
+        flex-direction: column;
+        gap: 12px;
+        margin: 0 8px;
+        padding: 10px 12px;
+    }
+
+    .asb-counters {
+        justify-content: center;
+    }
+
+    .asb-pill {
+        padding: 6px 10px;
+    }
+
+    .asb-count {
+        font-size: 0.95rem;
+    }
+
+    .asb-label {
+        font-size: 0.6rem;
+    }
+
+    .asb-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .asb-action-btn {
+        flex: 1;
+        padding: 10px 12px;
+        font-size: 0.75rem;
+    }
+}

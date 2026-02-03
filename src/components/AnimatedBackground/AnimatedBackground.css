@@ -1,0 +1,281 @@
+/* 
+ * ANIMATED BACKGROUND - VISIBLE (8-10% OPACITY)
+ * Rings set to 0.08-0.10 opacity for clear visibility
+ */
+
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    background-color: var(--background);
+}
+
+/* ========== RING 1 - Large Top Right ========== */
+.ring-1 {
+    position: absolute;
+    top: -15%;
+    right: -10%;
+    width: 50vmax;
+    height: 50vmax;
+    border: 4px solid rgba(47, 111, 94, 0.10);
+    /* 10% Opacity */
+    border-radius: 50%;
+    animation: rotate360 20s linear infinite;
+}
+
+/* ========== RING 2 - Large Bottom Left ========== */
+.ring-2 {
+    position: absolute;
+    bottom: -20%;
+    left: -15%;
+    width: 55vmax;
+    height: 55vmax;
+    border: 4px solid rgba(143, 174, 161, 0.08);
+    /* 8% Opacity */
+    border-radius: 50%;
+    animation: rotate360 25s linear infinite reverse;
+}
+
+/* ========== RING 3 - Medium Center ========== */
+.ring-3 {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    width: 40vmax;
+    height: 40vmax;
+    border: 3px solid rgba(47, 111, 94, 0.08);
+    /* 8% Opacity */
+    border-radius: 50%;
+    animation: rotate360 18s linear infinite;
+}
+
+/* ========== RING 4 - Small Top Left ========== */
+.ring-4 {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 25vmax;
+    height: 25vmax;
+    border: 4px solid rgba(47, 111, 94, 0.10);
+    /* 10% Opacity */
+    border-radius: 50%;
+    animation: rotate360 15s linear infinite reverse;
+}
+
+/* ========== RING 5 - Small Bottom Right ========== */
+.ring-5 {
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    width: 22vmax;
+    height: 22vmax;
+    border: 4px solid rgba(201, 162, 77, 0.08);
+    /* 8% Opacity */
+    border-radius: 50%;
+    animation: rotate360 12s linear infinite;
+}
+
+/* ========== ARC 1 - Quarter Circle Top ========== */
+.arc-1 {
+    position: absolute;
+    top: 0;
+    left: -5%;
+    width: 45vmax;
+    height: 45vmax;
+    border: 5px solid transparent;
+    border-top-color: rgba(47, 111, 94, 0.10);
+    /* 10% Opacity */
+    border-right-color: rgba(47, 111, 94, 0.05);
+    border-radius: 50%;
+    animation: rotate360 16s linear infinite;
+}
+
+/* ========== ARC 2 - Quarter Circle Bottom ========== */
+.arc-2 {
+    position: absolute;
+    bottom: -10%;
+    right: -5%;
+    width: 48vmax;
+    height: 48vmax;
+    border: 5px solid transparent;
+    border-bottom-color: rgba(201, 162, 77, 0.08);
+    /* 8% Opacity */
+    border-left-color: rgba(201, 162, 77, 0.04);
+    border-radius: 50%;
+    animation: rotate360 22s linear infinite reverse;
+}
+
+/* ========== ARC 3 - Half Circle Middle ========== */
+.arc-3 {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    width: 35vmax;
+    height: 35vmax;
+    border: 4px solid transparent;
+    border-top-color: rgba(143, 174, 161, 0.09);
+    /* 9% Opacity */
+    border-radius: 50%;
+    animation: rotate360 14s linear infinite;
+}
+
+/* ========== ARC 4 - Arc Right Side ========== */
+.arc-4 {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 30vmax;
+    height: 30vmax;
+    border: 4px solid transparent;
+    border-right-color: rgba(47, 111, 94, 0.08);
+    /* 8% Opacity */
+    border-bottom-color: rgba(47, 111, 94, 0.04);
+    border-radius: 50%;
+    animation: rotate360 18s linear infinite reverse;
+}
+
+/* ========== GLOW 1 - Pulsing Center ========== */
+.glow-1 {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50vmax;
+    height: 50vmax;
+    background: radial-gradient(circle, rgba(47, 111, 94, 0.06) 0%, transparent 50%);
+    /* 6% Opacity */
+    border-radius: 50%;
+    animation: pulse 10s ease-in-out infinite;
+}
+
+/* ========== GLOW 2 - Pulsing Bottom ========== */
+.glow-2 {
+    position: absolute;
+    bottom: 10%;
+    right: 20%;
+    width: 45vmax;
+    height: 45vmax;
+    background: radial-gradient(circle, rgba(201, 162, 77, 0.06) 0%, transparent 50%);
+    /* 6% Opacity */
+    border-radius: 50%;
+    animation: pulse 12s ease-in-out infinite;
+    animation-delay: -4s;
+}
+
+/* ========== KEYFRAMES - ROTATION ========== */
+@keyframes rotate360 {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========== KEYFRAMES - PULSE ========== */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(0.9);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* ========== DARK MODE - VISIBLE (8-10%) ========== */
+[data-theme="dark"] .ring-1 {
+    border-color: rgba(79, 160, 139, 0.10);
+    animation-duration: 28s;
+}
+
+[data-theme="dark"] .ring-2 {
+    border-color: rgba(31, 61, 54, 0.12);
+    animation-duration: 32s;
+}
+
+[data-theme="dark"] .ring-3 {
+    border-color: rgba(79, 160, 139, 0.08);
+    animation-duration: 25s;
+}
+
+[data-theme="dark"] .ring-4 {
+    border-color: rgba(79, 160, 139, 0.10);
+    animation-duration: 22s;
+}
+
+[data-theme="dark"] .ring-5 {
+    border-color: rgba(214, 184, 106, 0.08);
+    animation-duration: 18s;
+}
+
+[data-theme="dark"] .arc-1 {
+    border-top-color: rgba(79, 160, 139, 0.10);
+    border-right-color: rgba(79, 160, 139, 0.05);
+    animation-duration: 24s;
+}
+
+[data-theme="dark"] .arc-2 {
+    border-bottom-color: rgba(214, 184, 106, 0.09);
+    border-left-color: rgba(214, 184, 106, 0.05);
+    animation-duration: 30s;
+}
+
+[data-theme="dark"] .arc-3 {
+    border-top-color: rgba(31, 61, 54, 0.10);
+    animation-duration: 20s;
+}
+
+[data-theme="dark"] .arc-4 {
+    border-right-color: rgba(79, 160, 139, 0.08);
+    border-bottom-color: rgba(79, 160, 139, 0.04);
+    animation-duration: 26s;
+}
+
+[data-theme="dark"] .glow-1 {
+    background: radial-gradient(circle, rgba(79, 160, 139, 0.06) 0%, transparent 50%);
+    animation-duration: 14s;
+}
+
+[data-theme="dark"] .glow-2 {
+    background: radial-gradient(circle, rgba(214, 184, 106, 0.06) 0%, transparent 50%);
+    animation-duration: 16s;
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+
+    .ring-1,
+    .ring-2,
+    .ring-3,
+    .ring-4,
+    .ring-5,
+    .arc-1,
+    .arc-2,
+    .arc-3,
+    .arc-4,
+    .glow-1,
+    .glow-2 {
+        animation: none !important;
+    }
+}
+
+/* ========== MOBILE - REDUCE ELEMENTS ========== */
+@media (max-width: 480px) {
+
+    .ring-3,
+    .arc-3,
+    .arc-4,
+    .glow-2 {
+        display: none;
+    }
+}

@@ -1,0 +1,146 @@
+/* GRID CONTAINER */
+.table-order-grid {
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+    grid-template-columns: 1fr;
+    align-items: start;
+}
+
+@media (min-width: 600px) {
+    .table-order-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .table-order-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* TABLE BOX */
+.table-box {
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* keep subtle border for shape */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 240px;
+    transition: all 0.2s;
+    position: relative;
+    /* Use variables for dynamic theming */
+}
+
+/* Dark Mode Overrides via Variables - clean up needed specific checks */
+[data-theme="dark"] .table-box {
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.table-box.active-table {
+    border: 2px solid var(--primary);
+    /* Leaf Green Border for active */
+    background: var(--surface);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Highlight bg for active? Optional. Keep clean white/slate. */
+[data-theme="dark"] .table-box.active-table {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--primary);
+}
+
+.table-box:not(.active-table) {
+    border: 2px dashed var(--secondary);
+    /* Soft Olive Dash */
+    opacity: 0.7;
+    background: rgba(255, 255, 255, 0.5);
+    /* fallback */
+}
+
+[data-theme="dark"] .table-box:not(.active-table) {
+    background: rgba(0, 0, 0, 0.2);
+    /* darken */
+}
+
+.table-box-header {
+    background: var(--secondary);
+    /* Use secondary color for header? Or surface? */
+    /* User: "Secondary: Soft Olive". Good for header. */
+    background: linear-gradient(to right, var(--secondary), var(--bg-surface));
+    /* styled */
+    /* ACTUALLY, simpler: */
+    background: var(--surface);
+    border-bottom: 2px solid var(--border-light);
+    padding: 10px 14px;
+    font-weight: 800;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+[data-theme="dark"] .table-box-header {
+    background: var(--surface);
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.add-order-btn {
+    background: var(--cta-primary);
+    /* Leaf Green / Jade */
+    color: #FFF;
+    /* Always white text on primary */
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.table-box-content {
+    flex: 1;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--background);
+    /* Inner content slight distinction? */
+    /* Or keep transparent */
+    background: transparent;
+}
+
+.empty-msg {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.8;
+}
+
+.empty-msg::before {
+    content: "Empty";
+    display: block;
+    background: var(--background);
+    color: var(--text-secondary);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}

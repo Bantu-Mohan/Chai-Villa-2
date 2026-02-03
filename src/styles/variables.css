@@ -1,50 +1,91 @@
+/* Ivory Leaf Design System - CSS Variables */
+
+/* Light Mode (default) - High Contrast for Daylight */
 :root {
-  /* Brand Colors */
-  --color-primary: #D4A373; /* Chai Gold */
-  --color-primary-dark: #A87D55;
-  --color-accent: #606C38; /* Tea Leaf Green */
-  --color-accent-light: #A8D5BA;
-  
-  /* Functional Colors */
-  --color-success: #2A9D8F;
-  --color-warning: #E9C46A;
-  --color-danger: #E76F51;
-  --color-info: #264653;
+  /* Colors - Enhanced for readability */
+  --primary: #2F6F5E;
+  --primary-hover: #26594b;
+  --secondary: #8FAEA1;
+  --accent: #C9A24D;
+  --background: #F5F5F2;
+  --surface: #FFFFFF;
+  --text-primary: #1A1F1E;
+  --text-secondary: #4A5654;
+  --cta-primary: #2F6F5E;
+  --cta-secondary: #C9A24D;
 
-  /* Backgrounds (Dark Theme Base) */
-  --bg-app: #1D1D1D;
-  --bg-panel: #262626;
-  --bg-card: #2E2E2E;
-  --bg-overlay: rgba(0, 0, 0, 0.7);
+  /* Borders */
+  --border-light: rgba(47, 111, 94, 0.12);
+  --border-medium: rgba(47, 111, 94, 0.2);
 
-  /* Text */
-  --text-main: #F4F4F9;
-  --text-muted: #AFAFB6;
-  --text-inverse: #1D1D1D;
+  /* Overlay */
+  --overlay: rgba(26, 31, 30, 0.5);
+
+  /* Shadows - More prominent for cards */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.15);
+
+  /* Card Shadow */
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
 
   /* Spacing */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  
-  /* Borders */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.3);
-  --shadow-glow: 0 0 15px rgba(212, 163, 115, 0.2);
-
   /* Transitions */
-  --transition-fast: 0.15s ease;
-  --transition-normal: 0.3s ease;
+  --transition-fast: 120ms ease;
+  --transition-normal: 150ms ease;
+  --transition-slow: 300ms ease;
+
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 }
 
-/* Light Mode Overrides (if we want, but sticking to Dark for Premium feel for now) */
-/* Ideally we just stick to one robust theme as per "simple" requirements, 
-   but variables make it easy to switch. */
+/* Dark Mode */
+[data-theme="dark"] {
+  --primary: #4FA08B;
+  --primary-hover: #3d8a76;
+  --secondary: #1F3D36;
+  --accent: #D6B86A;
+  --background: #111816;
+  --surface: #1A2421;
+  --text-primary: #E9F1EE;
+  --text-secondary: #A6B5B1;
+  --cta-primary: #4FA08B;
+  --cta-secondary: #D6B86A;
+
+  --border-light: rgba(79, 160, 139, 0.15);
+  --border-medium: rgba(79, 160, 139, 0.25);
+
+  --overlay: rgba(0, 0, 0, 0.7);
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.45);
+
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.15);
+}

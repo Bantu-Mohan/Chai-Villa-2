@@ -1,0 +1,76 @@
+.table-controls-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background: transparent;
+    /* Cleaner look */
+    /* border-bottom: 1px solid rgba(0,0,0,0.05); Removed border to blend */
+    z-index: 90;
+    max-width: 1200px;
+    /* Constrain width on large screens */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.table-controls-group {
+    display: flex;
+    gap: 16px;
+    margin-left: auto;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+    color: var(--text-primary);
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.control-btn:hover:not(:disabled) {
+    background: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.05);
+    border-color: transparent;
+    box-shadow: none;
+}
+
+/* Distinct Add/Remove styles */
+.control-btn.add {
+    border-color: rgba(42, 157, 143, 0.3);
+    color: #00695C;
+}
+
+.control-btn.remove {
+    border-color: rgba(230, 57, 70, 0.3);
+    color: #D00000;
+}
+
+.btn-label {
+    font-size: 0.9rem;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .control-btn {
+    background: rgba(50, 50, 45, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #EEE;
+}
+
+[data-theme="dark"] .control-btn:disabled {
+    background: rgba(255, 255, 255, 0.05);
+}

@@ -1,0 +1,194 @@
+/* STRICT REBUILD of Global Status Bar */
+
+.global-status-bar {
+    /* CONTAINER LAYOUT */
+    display: flex;
+    flex-wrap: nowrap;
+    /* Horizontal scrolling on mobile */
+    align-items: center;
+    /* Vertically center cards */
+    gap: 16px;
+
+    /* SIZE & PADDING */
+    /* Fixed minimum height to contain cards + shadows comfortably */
+    min-height: 140px;
+    width: 100%;
+
+    /* PADDING - Generous padding to prevent shadow clipping */
+    padding: 30px 24px;
+    box-sizing: border-box;
+
+    /* SOLID BACKGROUND - NO BLUR */
+    background-color: var(--surface);
+    border-bottom: 2px solid var(--border-light);
+
+    /* SHADOW - One soft shadow on container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+    /* SCROLLING BEHAVIOR */
+    overflow-x: auto;
+    /* Allow horizontal scroll */
+    overflow-y: hidden;
+    /* Lock vertical */
+    -webkit-overflow-scrolling: touch;
+
+    /* POSITIONING */
+    position: relative;
+    z-index: 95;
+}
+
+/* Helper Text positioned absolutely at bottom, safe from card flow */
+.global-status-bar::after {
+    content: "Today’s Status (resets daily at 2:00 AM)";
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+}
+
+/* Desktop Alignment */
+@media (min-width: 1024px) {
+    .global-status-bar {
+        justify-content: center;
+        /* Center cards if space permits */
+        gap: 32px;
+    }
+}
+
+/* STATUS CARDS */
+.status-pill {
+    /* LAYOUT */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* SIZE - Fixed height for uniformity */
+    height: 80px;
+    min-width: 120px;
+    flex: 0 0 auto;
+    /* No shrinking, no growing */
+
+    /* SPACING */
+    padding: 0 16px;
+    gap: 6px;
+
+    /* APPEARANCE - TACTILE CARD */
+    background-color: var(--surface);
+    /* Fallback */
+    border-radius: 12px;
+    color: white;
+
+    /* SHADOW - Soft depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    /* NO TRANFORMS */
+    margin: 0;
+    transform: none;
+
+    /* BORDER */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* TRANSITIONS */
+    transition: box-shadow 0.2s, background-color 0.2s;
+}
+
+.status-pill:active {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    /* Pressed effect via shadow only */
+}
+
+/* CONTENT STYLING */
+.status-pill span:first-child {
+    /* Label */
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.95;
+    line-height: normal;
+}
+
+.pill-count {
+    /* Number */
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    display: block;
+}
+
+/* COLORS - Solid, High Contrast */
+.pill-ordered {
+    background-color: #E63946;
+}
+
+.pill-preparing {
+    background-color: #F4A261;
+    color: #1A1F1E;
+}
+
+.pill-ready {
+    background-color: #2A9D8F;
+}
+
+.pill-served {
+    background-color: #457B9D;
+}
+
+.pill-paid {
+    background-color: #7B2CBF;
+}
+
+.pill-completed {
+    background-color: #2F6F5E;
+}
+
+/* ZERO STATE - Distinct but clean */
+.status-pill.is-zero {
+    background-color: var(--background);
+    border: 2px dashed var(--border-medium);
+    box-shadow: none;
+    color: #AAAAAA;
+}
+
+/* Zero State Accents (Border Color Only) */
+.status-pill.is-zero.pill-ordered {
+    border-color: rgba(230, 57, 70, 0.3);
+    color: #D0D0D0;
+}
+
+/* Keep specific colored text for zero? Prompt says "High contrast at all times". 
+   Light gray on white is low contrast. Let's make zero counts readable. 
+*/
+.status-pill.is-zero {
+    color: #888888;
+    /* Darker gray for readability */
+}
+
+/* Ensure margins to avoid scroll clipping on edges */
+.global-status-bar .status-pill:first-of-type {
+    margin-left: 4px;
+}
+
+.global-status-bar .status-pill:last-of-type {
+    margin-right: 4px;
+}
+
+/* DARK MODE OVERRIDES */
+[data-theme="dark"] .global-status-bar {
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #333;
+}
+
+[data-theme="dark"] .status-pill.is-zero {
+    background-color: #222;
+    border-color: #444;
+    color: #666;
+}

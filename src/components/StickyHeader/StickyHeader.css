@@ -1,0 +1,142 @@
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) var(--space-lg);
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.shop-name {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary);
+    letter-spacing: -0.02em;
+}
+
+.table-badge {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary);
+    background-color: rgba(47, 111, 94, 0.1);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-medium);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+/* Common Icon Button Styles */
+.header-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    color: var(--text-secondary);
+    background-color: var(--background);
+    border: 1px solid var(--border-light);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.header-icon-btn:hover {
+    background-color: rgba(47, 111, 94, 0.1);
+    color: var(--primary);
+    border-color: var(--border-medium);
+}
+
+.header-icon-btn:active {
+    transform: scale(0.95);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    color: var(--accent);
+}
+
+.theme-toggle:hover {
+    background-color: rgba(201, 162, 77, 0.1);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Cart Icon */
+.cart-icon {
+    color: var(--primary);
+    background-color: rgba(47, 111, 94, 0.1);
+    border-color: var(--primary);
+}
+
+.cart-icon:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background-color: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: badgePop 0.2s ease-out;
+}
+
+@keyframes badgePop {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .header-left {
+        gap: var(--space-sm);
+    }
+
+    .shop-name {
+        font-size: var(--font-size-lg);
+    }
+
+    .header-icon-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .header-icon-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}
