@@ -10,10 +10,14 @@ import './styles/global.css';
 function App() {
   const tableNumber = useTableNumber();
   const cart = useCart();
-  
-  // Admin Route Check
+
+  // Routing Logic
   const urlParams = new URLSearchParams(window.location.search);
-  const isAdminRoute = urlParams.has('admin');
+  const isAdminParam = urlParams.has('admin');
+  const hasTableParam = urlParams.has('table');
+
+  // Show Admin if explicitly requested OR if no table is specified (Root URL)
+  const showAdmin = isAdminParam || !hasTableParam;
 
   // Session Auth State
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -22,19 +26,19 @@ function App() {
     // Check Session Storage on Mount
     const sessionToken = sessionStorage.getItem('admin_token');
     if (sessionToken === 'valid') {
-        setIsAuthenticated(true);
+      setIsAuthenticated(true);
     }
   }, []);
 
   const handleLogin = () => {
-      sessionStorage.setItem('admin_token', 'valid');
-      setIsAuthenticated(true);
+    sessionStorage.setItem('admin_token', 'valid');
+    setIsAuthenticated(true);
   };
 
   // ADMIN VIEW
-  if (isAdminRoute) {
+  if (showAdmin) {
     if (!isAuthenticated) {
-        return <AdminLogin onLogin={handleLogin} />;
+      return <AdminLogin onLogin={handleLogin} />;
     }
     return <AdminDashboard />;
   }
