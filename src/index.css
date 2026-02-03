@@ -2,6 +2,7 @@
   /* LIGHT MODE PALETTE */
   --primary: #2F6F5E;
   /* Leaf Green */
+  --primary-hover: #26594b;
   --secondary: #8FAEA1;
   /* Soft Olive */
   --accent: #C9A24D;
@@ -9,8 +10,9 @@
 
   --bg-app: #FAFAF7;
   /* Ivory */
-  --bg-surface: #FFFFFF;
+  --surface: #FFFFFF;
   /* White */
+  --background: #F4F4F1;
 
   --text-primary: #1E2A28;
   /* Charcoal */
@@ -21,6 +23,41 @@
   /* Leaf Green */
   --cta-secondary: #C9A24D;
   /* Gold */
+
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-medium: rgba(0, 0, 0, 0.15);
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
 
   font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.5;
@@ -36,6 +73,7 @@
   /* DARK MODE PALETTE */
   --primary: #4FA08B;
   /* Muted Jade */
+  --primary-hover: #3D8B78;
   --secondary: #1F3D36;
   /* Deep Teal */
   --accent: #D6B86A;
@@ -43,8 +81,9 @@
 
   --bg-app: hsl(160, 22%, 8%);
   /* Warm Charcoal */
-  --bg-surface: #182321;
+  --surface: #182321;
   /* Dark Slate */
+  --background: #121A18;
 
   --text-primary: #E9F1EE;
   /* Off-White */
@@ -55,6 +94,9 @@
   /* Jade */
   --cta-secondary: #D6B86A;
   /* Gold */
+
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-medium: rgba(255, 255, 255, 0.2);
 }
 
 body {
@@ -75,16 +117,17 @@ h4,
 h5,
 h6 {
   color: var(--text-primary);
+  margin: 0;
 }
 
 button {
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 600;
   font-family: inherit;
-  background-color: var(--bg-surface);
+  background-color: var(--surface);
   color: var(--text-primary);
   cursor: pointer;
   transition: all 0.25s;
